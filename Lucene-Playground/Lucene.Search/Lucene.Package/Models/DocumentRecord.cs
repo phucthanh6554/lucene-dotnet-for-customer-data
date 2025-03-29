@@ -1,29 +1,25 @@
 ﻿namespace Lucene.Package.Models
 {
-    public class InsertDocumentRequest
+    public class DocumentRecord
     {
-        public required string IndexName { get; set; }
+        public required List<FieldRecord> Fields { get; set; }
 
-        public List<FieldRecord> Fields { get; set; }
-
-        public InsertDocumentRequest(string indexName)
+        public DocumentRecord()
         {
-            IndexName = indexName;
-            Fields = new List<FieldRecord>();
+
         }
 
-        public InsertDocumentRequest(string indexName, List<FieldRecord> fields)
+        public DocumentRecord(List<FieldRecord> fields)
         {
-            IndexName = indexName;
             Fields = fields;
         }
 
         public void AddField(FieldRecord field)
         {
-            if(Fields == null)
+            if (Fields == null)
                 Fields = new List<FieldRecord>();
 
-            if(field == null)
+            if (field == null)
                 throw new ArgumentNullException(nameof(field));
 
             Fields.Add(field);
@@ -40,6 +36,4 @@
             Fields.AddRange(fields);
         }
     }
-
-
 }
