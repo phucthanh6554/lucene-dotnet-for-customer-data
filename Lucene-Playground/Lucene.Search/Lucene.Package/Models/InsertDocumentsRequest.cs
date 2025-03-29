@@ -1,4 +1,6 @@
-﻿namespace Lucene.Package.Models
+﻿using Lucene.Net.Documents;
+
+namespace Lucene.Package.Models
 {
     public class InsertDocumentsRequest
     {
@@ -43,6 +45,13 @@
                 throw new ArgumentNullException(nameof(documents));
 
             Documents.AddRange(documents);
+        }
+
+        public List<Document> GenerateDocuments()
+        {
+            var documents = Documents.Select(x => x.GenerateLuceneDocument()).ToList(); 
+
+            return documents;
         }
     }
 }

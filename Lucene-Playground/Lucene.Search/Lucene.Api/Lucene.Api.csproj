@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\SharePackages\EntityFramework.Package\EntityFramework.Package.csproj" />
+    <ProjectReference Include="..\Lucene.Package\Lucene.Package.csproj" />
   </ItemGroup>
 
 </Project>
